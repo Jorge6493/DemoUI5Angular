@@ -1,0 +1,25 @@
+<p>heroes works!</p>
+<ui5-button>Hello world!</ui5-button>
+
+
+<h2>My Heroes</h2>
+<ui5-list class="heroes">
+  <ui5-li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </ui5-li>
+</ui5-list>
+
+<div *ngIf="selectedHero">
+
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <!--<input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">-->
+    <ui5-input id="name" ngDefaultControl [(ngModel)]="selectedHero.name" placeholder="name"></ui5-input>
+  </div>
+
+</div>
+
